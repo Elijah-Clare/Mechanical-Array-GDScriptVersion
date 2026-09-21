@@ -1,0 +1,27 @@
+[gd_scene format=4 uid="uid://cy7liqxu1swoh"]
+
+[ext_resource type="Texture2D" uid="uid://cn8po63j2mfxo" path="res://Visuals/Sprites/Ground/Ground1.png" id="1_k1nee"]
+[ext_resource type="PackedScene" uid="uid://b7adp3727vfkw" path="res://Scenes/Mechs/gunner_mech.tscn" id="2_88n3u"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sug8k"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_88n3u"]
+texture = ExtResource("1_k1nee")
+texture_region_size = Vector2i(600, 600)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_xa11k"]
+sources/2 = SubResource("TileSetAtlasSource_88n3u")
+
+[node name="World" type="Node" unique_id=67970668]
+
+[node name="Ground" type="TileMapLayer" parent="." unique_id=243479981]
+material = SubResource("ShaderMaterial_sug8k")
+tile_map_data = PackedByteArray("AADt/+3/AgAAAAAAAAASAO3/AgAAAAAAAAASABIAAgAAAAAAAADt/xIAAgAAAAAAAAA3ABIAAgAAAAAAAAA3AO3/AgAAAAAAAAA3ADcAAgAAAAAAAAASADcAAgAAAAAAAADt/zcAAgAAAAAAAAA=")
+tile_set = SubResource("TileSet_xa11k")
+
+[node name="GunnerMech" parent="." unique_id=1611864811 instance=ExtResource("2_88n3u")]
+position = Vector2(194, 78)
+
+[node name="Camera2D" type="Camera2D" parent="GunnerMech" unique_id=1682184360]
+position_smoothing_enabled = true

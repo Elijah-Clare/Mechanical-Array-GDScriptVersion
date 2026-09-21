@@ -1,0 +1,12 @@
+[gd_resource type="Theme" load_steps=3 format=2]
+
+[sub_resource type="DynamicFontData" id=2]
+antialiased = false
+font_path = "res://Visuals/Fonts/VCR_OSD_MONO_1.001.ttf"
+
+[sub_resource type="DynamicFont" id=1]
+size = 34
+font_data = SubResource( 2 )
+
+[resource]
+RichTextLabel/fonts/normal_font = SubResource( 1 )

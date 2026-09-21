@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b0c06n8sajcq5"
+path="res://.godot/imported/Rifle Shot B.wav-4f3c9d883a0d6d893f75ba7ddd15074d.sample"
+
+[deps]
+
+source_file="res://Audio/SoundEffects/Rifle Shot B.wav"
+dest_files=["res://.godot/imported/Rifle Shot B.wav-4f3c9d883a0d6d893f75ba7ddd15074d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

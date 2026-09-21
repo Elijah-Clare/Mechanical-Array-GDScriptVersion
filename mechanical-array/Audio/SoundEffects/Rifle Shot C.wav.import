@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cfo2jqg3dpxut"
+path="res://.godot/imported/Rifle Shot C.wav-94c918548bbda3ec7fec4eb73adbf95b.sample"
+
+[deps]
+
+source_file="res://Audio/SoundEffects/Rifle Shot C.wav"
+dest_files=["res://.godot/imported/Rifle Shot C.wav-94c918548bbda3ec7fec4eb73adbf95b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

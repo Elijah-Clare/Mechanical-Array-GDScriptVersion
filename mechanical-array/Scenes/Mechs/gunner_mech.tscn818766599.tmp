@@ -1,0 +1,177 @@
+[gd_scene format=3 uid="uid://b7adp3727vfkw"]
+
+[ext_resource type="Texture2D" uid="uid://chqck6swqyu1c" path="res://Visuals/Sprites/Mechs/GunnerMech/GunnerBottom.png" id="1_db7m6"]
+[ext_resource type="Texture2D" uid="uid://diqoohpx3rle2" path="res://Visuals/Sprites/Mechs/GunnerMech/GunnerMiddle.png" id="2_03sij"]
+[ext_resource type="Texture2D" uid="uid://dy3066kj0v26r" path="res://Visuals/Sprites/Mechs/GunnerMech/GunnerTop.png" id="3_otfu2"]
+[ext_resource type="Script" uid="uid://dk0p8cdncre1f" path="res://Scripts/CharacterComponents/move_component.gd" id="4_03sij"]
+[ext_resource type="PackedScene" uid="uid://belveoamievkv" path="res://Scenes/Mechs/health_component.tscn" id="5_5j8dr"]
+[ext_resource type="Script" uid="uid://53ofvu2tvg6v" path="res://Scripts/CharacterComponents/mouse_aim_component.gd" id="5_otfu2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_st2xw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wwxi4"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_38lou"]
+diffuse_texture = ExtResource("1_db7m6")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_njxjl"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ecreq"]
+diffuse_texture = ExtResource("1_db7m6")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wb81j"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ihu67"]
+diffuse_texture = ExtResource("2_03sij")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rjq52"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l353m"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_rklov"]
+diffuse_texture = ExtResource("3_otfu2")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3ltb6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xa11k"]
+size = Vector2(72, 30)
+
+[sub_resource type="Animation" id="Animation_otfu2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Foot_Left:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(30, -10)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Foot_Right:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-30, -10)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MouseAimComponent:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5j8dr"]
+resource_name = "gunner_mech_walk"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Foot_Left:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.099999994, 0.8666667, 1.1, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(30, -12), Vector2(30, -12), Vector2(30, 12), Vector2(30, 12), Vector2(30, -12)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Foot_Right:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.099999994, 0.8666667, 1.1, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-30, 12), Vector2(-30, 12), Vector2(-30, -12), Vector2(-30, -12), Vector2(-30, 12)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MouseAimComponent:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.43494344, 0.66),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(127, 2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o7kln"]
+_data = {
+&"RESET": SubResource("Animation_otfu2"),
+&"gunner_mech_walk": SubResource("Animation_5j8dr")
+}
+
+[node name="GunnerMech" type="CharacterBody2D" unique_id=1611864811]
+material = SubResource("ShaderMaterial_st2xw")
+
+[node name="Foot_Left" type="Sprite2D" parent="." unique_id=2074582984]
+texture_filter = 1
+material = SubResource("ShaderMaterial_wwxi4")
+rotation = 1.5707964
+texture = SubResource("CanvasTexture_38lou")
+offset = Vector2(30, -10)
+
+[node name="Foot_Right" type="Sprite2D" parent="." unique_id=1059465392]
+texture_filter = 1
+material = SubResource("ShaderMaterial_njxjl")
+rotation = 1.5707964
+texture = SubResource("CanvasTexture_ecreq")
+offset = Vector2(-30, -10)
+
+[node name="MechBodySprite" type="Sprite2D" parent="." unique_id=1825808184]
+texture_filter = 1
+material = SubResource("ShaderMaterial_wb81j")
+rotation = 1.5707964
+texture = SubResource("CanvasTexture_ihu67")
+
+[node name="MouseAimComponent" type="Node2D" parent="." unique_id=423940070 node_paths=PackedStringArray("sprite_to_rotate")]
+material = SubResource("ShaderMaterial_rjq52")
+script = ExtResource("5_otfu2")
+sprite_to_rotate = NodePath("MechHeadSprite")
+rotation_speed = 0.05
+
+[node name="MechHeadSprite" type="Sprite2D" parent="MouseAimComponent" unique_id=350701536]
+texture_filter = 1
+material = SubResource("ShaderMaterial_l353m")
+rotation = 1.5707964
+texture = SubResource("CanvasTexture_rklov")
+offset = Vector2(0, -13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=665047545]
+material = SubResource("ShaderMaterial_3ltb6")
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_xa11k")
+
+[node name="HealthComponent" parent="." unique_id=1192818282 instance=ExtResource("5_5j8dr")]
+
+[node name="MoveComponent" type="Node" parent="." unique_id=1607203108 node_paths=PackedStringArray("character", "animation_player")]
+script = ExtResource("4_03sij")
+character = NodePath("..")
+animation_player = NodePath("../AnimationPlayer")
+
+[node name="FireComponent" type="Node" parent="." unique_id=1436646809]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=351827028]
+libraries/ = SubResource("AnimationLibrary_o7kln")
+autoplay = &"gunner_mech_walk"
