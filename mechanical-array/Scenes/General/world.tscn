@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cn8po63j2mfxo" path="res://Visuals/Sprites/Ground/Ground1.png" id="1_k1nee"]
 [ext_resource type="PackedScene" uid="uid://b7adp3727vfkw" path="res://Scenes/Mechs/gunner_mech.tscn" id="2_88n3u"]
+[ext_resource type="PackedScene" uid="uid://sfvaa0f188wq" path="res://Scenes/General/player.tscn" id="2_ftpi5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sug8k"]
 
@@ -20,8 +21,10 @@ material = SubResource("ShaderMaterial_sug8k")
 tile_map_data = PackedByteArray("AADt/+3/AgAAAAAAAAASAO3/AgAAAAAAAAASABIAAgAAAAAAAADt/xIAAgAAAAAAAAA3ABIAAgAAAAAAAAA3AO3/AgAAAAAAAAA3ADcAAgAAAAAAAAASADcAAgAAAAAAAADt/zcAAgAAAAAAAAA=")
 tile_set = SubResource("TileSet_xa11k")
 
-[node name="GunnerMech" parent="." unique_id=1611864811 instance=ExtResource("2_88n3u")]
+[node name="Player" parent="." unique_id=1979070257 instance=ExtResource("2_ftpi5")]
+
+[node name="GunnerMech" parent="Player" unique_id=1611864811 instance=ExtResource("2_88n3u")]
 position = Vector2(194, 78)
 
-[node name="Camera2D" type="Camera2D" parent="GunnerMech" unique_id=1682184360]
+[node name="Camera2D" type="Camera2D" parent="Player/GunnerMech" unique_id=1682184360]
 position_smoothing_enabled = true
