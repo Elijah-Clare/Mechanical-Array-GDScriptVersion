@@ -39,7 +39,7 @@ func _ready() -> void:
 	possessed_mech = get_child(0)
 	
 	# Setting up components
-	movement_component = possessed_mech.get_node("MovementComponent")
+	movement_component = possessed_mech.get_node("MoveComponent")
 	health_component = possessed_mech.get_node("HealthComponent")
 	shoot_component = possessed_mech.get_node("ShootComponent")
 	look_component = possessed_mech.get_node("LookComponent")

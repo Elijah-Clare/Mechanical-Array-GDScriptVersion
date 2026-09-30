@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://chqck6swqyu1c" path="res://Visuals/Sprites/Mechs/GunnerMech/GunnerBottom.png" id="1_db7m6"]
 [ext_resource type="Texture2D" uid="uid://diqoohpx3rle2" path="res://Visuals/Sprites/Mechs/GunnerMech/GunnerMiddle.png" id="2_03sij"]
+[ext_resource type="Script" uid="uid://cfd3rtixpbf1g" path="res://Scenes/Mechs/mech_body_sprite.gd" id="3_5j8dr"]
 [ext_resource type="Texture2D" uid="uid://dy3066kj0v26r" path="res://Visuals/Sprites/Mechs/GunnerMech/GunnerTop.png" id="3_otfu2"]
 [ext_resource type="Script" uid="uid://dk0p8cdncre1f" path="res://Scripts/CharacterComponents/move_component.gd" id="4_03sij"]
 [ext_resource type="Script" uid="uid://53ofvu2tvg6v" path="res://Scripts/CharacterComponents/mouse_aim_component.gd" id="5_otfu2"]
@@ -22,13 +23,6 @@ diffuse_texture = ExtResource("1_db7m6")
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_ihu67"]
 diffuse_texture = ExtResource("2_03sij")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_rjq52"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_l353m"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_rklov"]
-diffuse_texture = ExtResource("3_otfu2")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3ltb6"]
 
@@ -97,34 +91,62 @@ _data = {
 &"gunner_mech_walk": SubResource("Animation_5j8dr")
 }
 
-[node name="GunnerMech" type="CharacterBody2D" unique_id=1611864811]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rjq52"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l353m"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_rklov"]
+diffuse_texture = ExtResource("3_otfu2")
+
+[node name="Node2D" type="Node2D" unique_id=736698877]
+
+[node name="GunnerMech" type="CharacterBody2D" parent="." unique_id=1611864811]
 material = SubResource("ShaderMaterial_st2xw")
 
-[node name="Foot_Left" type="Sprite2D" parent="." unique_id=2074582984]
+[node name="Foot_Left" type="Sprite2D" parent="GunnerMech" unique_id=2074582984]
 texture_filter = 1
 material = SubResource("ShaderMaterial_wwxi4")
 rotation = 1.5707964
 texture = SubResource("CanvasTexture_38lou")
 offset = Vector2(30, -10)
 
-[node name="Foot_Right" type="Sprite2D" parent="." unique_id=1059465392]
+[node name="Foot_Right" type="Sprite2D" parent="GunnerMech" unique_id=1059465392]
 texture_filter = 1
 material = SubResource("ShaderMaterial_njxjl")
 rotation = 1.5707964
 texture = SubResource("CanvasTexture_ecreq")
 offset = Vector2(-30, -10)
 
-[node name="MechBodySprite" type="Sprite2D" parent="." unique_id=1825808184]
+[node name="MechBodySprite" type="Sprite2D" parent="GunnerMech" unique_id=1825808184 node_paths=PackedStringArray("body")]
 texture_filter = 1
 material = SubResource("ShaderMaterial_wb81j")
 rotation = 1.5707964
 texture = SubResource("CanvasTexture_ihu67")
+script = ExtResource("3_5j8dr")
+body = NodePath(".")
 
-[node name="MouseAimComponent" type="Node2D" parent="." unique_id=423940070 node_paths=PackedStringArray("sprite_to_rotate")]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GunnerMech" unique_id=665047545]
+material = SubResource("ShaderMaterial_3ltb6")
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_xa11k")
+
+[node name="HealthComponent" type="Node" parent="GunnerMech" unique_id=1607192253]
+
+[node name="MoveComponent" type="Node" parent="GunnerMech" unique_id=1607203108 node_paths=PackedStringArray("character", "animation_player")]
+script = ExtResource("4_03sij")
+character = NodePath("..")
+animation_player = NodePath("../AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GunnerMech" unique_id=351827028]
+libraries/ = SubResource("AnimationLibrary_o7kln")
+autoplay = &"gunner_mech_walk"
+
+[node name="Camera2D" type="Camera2D" parent="GunnerMech" unique_id=946647629]
+zoom = Vector2(5, 5)
+
+[node name="MouseAimComponent" type="Node2D" parent="." unique_id=423940070]
 material = SubResource("ShaderMaterial_rjq52")
 script = ExtResource("5_otfu2")
-sprite_to_rotate = NodePath(".")
-rotation_speed = 5.0
 
 [node name="MechHeadSprite" type="Sprite2D" parent="MouseAimComponent" unique_id=350701536]
 texture_filter = 1
@@ -132,21 +154,3 @@ material = SubResource("ShaderMaterial_l353m")
 rotation = 1.5707964
 texture = SubResource("CanvasTexture_rklov")
 offset = Vector2(0, -12.45)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=665047545]
-material = SubResource("ShaderMaterial_3ltb6")
-rotation = 1.5707964
-shape = SubResource("RectangleShape2D_xa11k")
-
-[node name="HealthComponent" type="Node" parent="." unique_id=1607192253]
-
-[node name="MoveComponent" type="Node" parent="." unique_id=1607203108 node_paths=PackedStringArray("character", "animation_player")]
-script = ExtResource("4_03sij")
-character = NodePath("..")
-animation_player = NodePath("../AnimationPlayer")
-
-[node name="FireComponent" type="Node" parent="." unique_id=1436646809]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=351827028]
-libraries/ = SubResource("AnimationLibrary_o7kln")
-autoplay = &"gunner_mech_walk"

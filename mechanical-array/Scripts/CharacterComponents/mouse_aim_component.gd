@@ -1,9 +1,16 @@
 extends Node2D
 
+var BULLET = preload("res://Scenes/Projectiles/bullet.tscn")
 
-@export var sprite_to_rotate : Node2D
-@export var rotation_speed : float
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	sprite_to_rotate.rotation = lerp_angle(rotation, rotation + get_angle_to(get_global_mouse_position()), rotation_speed * delta)
+func _process(delta: float) -> void:
+	look_at(get_global_mouse_position())
+	global_position = $"../GunnerMech".global_position
+	
+	if Input.is_action_just_pressed("shoot"):
+		var bullet_instance = BULLET.instantiate()
+		get_tree().root.add_child(bullet_instance)
+		bullet_instance.global_position = global_position
+		bullet_instance.rotation = rotation
+		print("bullet direction: " + str(bullet_instance.rotation_degrees))
+		print("mech direction: " + str($"..".rotation_degrees))
+		
