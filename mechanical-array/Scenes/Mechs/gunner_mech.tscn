@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://cfd3rtixpbf1g" path="res://Scenes/Mechs/mech_body_sprite.gd" id="3_5j8dr"]
 [ext_resource type="Texture2D" uid="uid://dy3066kj0v26r" path="res://Visuals/Sprites/Mechs/GunnerMech/GunnerTop.png" id="3_otfu2"]
 [ext_resource type="Script" uid="uid://dk0p8cdncre1f" path="res://Scripts/CharacterComponents/move_component.gd" id="4_03sij"]
+[ext_resource type="Script" uid="uid://btmn337lxalyu" path="res://Scripts/CharacterComponents/health_component.gd" id="4_o7kln"]
 [ext_resource type="Script" uid="uid://53ofvu2tvg6v" path="res://Scripts/CharacterComponents/mouse_aim_component.gd" id="5_otfu2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_st2xw"]
@@ -125,12 +126,15 @@ texture = SubResource("CanvasTexture_ihu67")
 script = ExtResource("3_5j8dr")
 body = NodePath(".")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GunnerMech" unique_id=665047545]
-material = SubResource("ShaderMaterial_3ltb6")
+[node name="Area2D" type="Area2D" parent="GunnerMech" unique_id=253864587]
 rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GunnerMech/Area2D" unique_id=665047545]
+material = SubResource("ShaderMaterial_3ltb6")
 shape = SubResource("RectangleShape2D_xa11k")
 
 [node name="HealthComponent" type="Node" parent="GunnerMech" unique_id=1607192253]
+script = ExtResource("4_o7kln")
 
 [node name="MoveComponent" type="Node" parent="GunnerMech" unique_id=1607203108 node_paths=PackedStringArray("character", "animation_player")]
 script = ExtResource("4_03sij")

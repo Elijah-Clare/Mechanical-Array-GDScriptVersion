@@ -2,9 +2,21 @@
 
 [ext_resource type="Script" uid="uid://dw8byiirvdbp4" path="res://Scenes/Projectiles/bullet.gd" id="1_3323x"]
 [ext_resource type="Texture2D" uid="uid://7nggb6gr0kre" path="res://Scenes/Projectiles/bullet.png" id="2_t1vox"]
+[ext_resource type="Script" uid="uid://bto88rbdfjkg" path="res://Scripts/CharacterComponents/hit_component.gd" id="3_t1vox"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w8aqq"]
+size = Vector2(2, 2)
 
 [node name="bullet" type="Node2D" unique_id=1792395856]
 script = ExtResource("1_3323x")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=11008999]
 texture = ExtResource("2_t1vox")
+
+[node name="HitboxComponent" type="Area2D" parent="." unique_id=848967830]
+script = ExtResource("3_t1vox")
+metadata/_custom_type_script = "uid://bto88rbdfjkg"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=921465713]
+shape = SubResource("RectangleShape2D_w8aqq")
+debug_color = Color(0.99886304, 0, 0.14290294, 0.41960785)

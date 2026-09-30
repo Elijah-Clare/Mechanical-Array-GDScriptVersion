@@ -11,6 +11,4 @@ func _process(delta: float) -> void:
 		get_tree().root.add_child(bullet_instance)
 		bullet_instance.global_position = global_position
 		bullet_instance.rotation = rotation
-		print("bullet direction: " + str(bullet_instance.rotation_degrees))
-		print("mech direction: " + str($"..".rotation_degrees))
 		
