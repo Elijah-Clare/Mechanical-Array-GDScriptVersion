@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://b7adp3727vfkw"]
 
-[ext_resource type="Script" uid="uid://bawkawgvpq4lh" path="res://Scripts/Player/gunner_mech.gd" id="1_38lou"]
 [ext_resource type="Texture2D" uid="uid://chqck6swqyu1c" path="res://Visuals/Sprites/Mechs/GunnerMech/GunnerBottom.png" id="1_db7m6"]
 [ext_resource type="Texture2D" uid="uid://diqoohpx3rle2" path="res://Visuals/Sprites/Mechs/GunnerMech/GunnerMiddle.png" id="2_03sij"]
 [ext_resource type="Script" uid="uid://cfd3rtixpbf1g" path="res://Scenes/Mechs/mech_body_sprite.gd" id="3_5j8dr"]
@@ -109,7 +108,6 @@ diffuse_texture = ExtResource("3_otfu2")
 
 [node name="GunnerMech" type="CharacterBody2D" parent="." unique_id=1611864811]
 material = SubResource("ShaderMaterial_st2xw")
-script = ExtResource("1_38lou")
 
 [node name="Foot_Left" type="Sprite2D" parent="GunnerMech" unique_id=2074582984]
 texture_filter = 1
@@ -187,5 +185,3 @@ size_flags_horizontal = 0
 value = 100.0
 script = ExtResource("6_st2xw")
 health = NodePath("../../GunnerMech/HealthComponent")
-
-[connection signal="died" from="GunnerMech/HealthComponent" to="GunnerMech/HealthComponent" method="_on_died"]

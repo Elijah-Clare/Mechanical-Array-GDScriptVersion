@@ -1,7 +1,6 @@
 [gd_scene format=4 uid="uid://cy7liqxu1swoh"]
 
 [ext_resource type="Texture2D" uid="uid://cn8po63j2mfxo" path="res://Visuals/Sprites/Ground/Ground1.png" id="1_k1nee"]
-[ext_resource type="PackedScene" uid="uid://b7adp3727vfkw" path="res://Scenes/Mechs/gunner_mech.tscn" id="2_88n3u"]
 [ext_resource type="PackedScene" uid="uid://du7dgrcelji62" path="res://Scenes/Environment/car.tscn" id="2_ftpi5"]
 [ext_resource type="PackedScene" uid="uid://ba5mj2xaodwcd" path="res://Scenes/GUI/pause_menu.tscn" id="4_7a57f"]
 [ext_resource type="PackedScene" uid="uid://ci4yhajy1cau7" path="res://Scenes/General/spawn.tscn" id="4_sug8k"]
@@ -26,8 +25,6 @@ tile_set = SubResource("TileSet_xa11k")
 [node name="car" parent="." unique_id=1739395628 instance=ExtResource("2_ftpi5")]
 position = Vector2(100, 0)
 scale = Vector2(3, 3)
-
-[node name="Node2D" parent="." unique_id=736698877 instance=ExtResource("2_88n3u")]
 
 [node name="spawn" parent="." unique_id=1672373825 instance=ExtResource("4_sug8k")]
 
