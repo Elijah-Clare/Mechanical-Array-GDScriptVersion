@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://ba5mj2xaodwcd"]
+
+[ext_resource type="Script" uid="uid://y2wgrxcen2ov" path="res://Scripts/GUI/pause_menu.gd" id="1_cifqg"]
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=1553481856]
+process_mode = 3
+script = ExtResource("1_cifqg")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=62315936]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.4509804)
+
+[node name="ItemList" type="ItemList" parent="." unique_id=964723007]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.29999
+offset_top = -114.71997
+offset_right = 94.29999
+offset_bottom = 114.71997
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="ItemList" unique_id=889936707]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -56.00002
+offset_top = 25.0
+offset_right = 63.999985
+offset_bottom = 85.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 27
+text = "Resume"
+
+[node name="Button2" type="Button" parent="ItemList" unique_id=241952454]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -60.00002
+offset_top = -84.43994
+offset_right = 59.999985
+offset_bottom = -24.439941
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 27
+text = "Quit"
+
+[connection signal="pressed" from="ItemList/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="ItemList/Button2" to="." method="_on_button_2_pressed"]

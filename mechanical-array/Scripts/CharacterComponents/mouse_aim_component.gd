@@ -2,7 +2,7 @@ extends Node2D
 
 var BULLET = preload("res://Scenes/Projectiles/bullet.tscn")
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	look_at(get_global_mouse_position())
 	global_position = $"../GunnerMech".global_position
 	

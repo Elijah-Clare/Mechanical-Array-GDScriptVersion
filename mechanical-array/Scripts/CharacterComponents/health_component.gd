@@ -19,5 +19,5 @@ func damage(attack: int):
 		died.emit()
 		print("Died")
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass

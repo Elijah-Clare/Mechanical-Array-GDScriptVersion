@@ -5,7 +5,7 @@ func _ready() -> void:
 
 func on_died() -> void: queue_free()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 
