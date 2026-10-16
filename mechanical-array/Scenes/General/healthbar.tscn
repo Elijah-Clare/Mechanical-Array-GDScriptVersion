@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cwiiaxh0vks8f"]
+
+[ext_resource type="Script" uid="uid://bwx1mik5w3jan" path="res://Scripts/GUI/health_bar.gd" id="1_it7ja"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=793010477]
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=157264286]
+offset_right = 54.0
+offset_bottom = 27.0
+value = 100.0
+script = ExtResource("1_it7ja")

@@ -13,9 +13,11 @@ func _ready() -> void:
 func damage(attack: int):
 	current_health -= attack
 	health_changed.emit(current_health)
+	print("health: ", current_health)
 	
 	if current_health <= 0:
 		died.emit()
+		print("Died")
 
 func _process(delta: float) -> void:
 	pass

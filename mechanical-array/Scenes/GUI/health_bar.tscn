@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://scmoansjxql7"]
+
+[node name="Healthbar" type="Node2D" unique_id=148109054]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1762576041]
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer" unique_id=1727280307]
+offset_right = 52.0
+offset_bottom = 27.0
+value = 100.0

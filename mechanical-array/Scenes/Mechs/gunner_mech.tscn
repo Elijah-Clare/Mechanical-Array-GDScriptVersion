@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://dk0p8cdncre1f" path="res://Scripts/CharacterComponents/move_component.gd" id="4_03sij"]
 [ext_resource type="Script" uid="uid://btmn337lxalyu" path="res://Scripts/CharacterComponents/health_component.gd" id="4_o7kln"]
 [ext_resource type="Script" uid="uid://53ofvu2tvg6v" path="res://Scripts/CharacterComponents/mouse_aim_component.gd" id="5_otfu2"]
+[ext_resource type="Script" uid="uid://bwx1mik5w3jan" path="res://Scripts/GUI/health_bar.gd" id="6_st2xw"]
+[ext_resource type="Script" uid="uid://duff2iueejs4b" path="res://Scripts/CharacterComponents/hurt_component.gd" id="6_wwxi4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_st2xw"]
 
@@ -92,6 +94,9 @@ _data = {
 &"gunner_mech_walk": SubResource("Animation_5j8dr")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m2wcw"]
+size = Vector2(30, 72)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rjq52"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l353m"]
@@ -146,7 +151,15 @@ libraries/ = SubResource("AnimationLibrary_o7kln")
 autoplay = &"gunner_mech_walk"
 
 [node name="Camera2D" type="Camera2D" parent="GunnerMech" unique_id=946647629]
-zoom = Vector2(5, 5)
+zoom = Vector2(2, 2)
+
+[node name="HurtboxComponent" type="Area2D" parent="GunnerMech" unique_id=302092773 node_paths=PackedStringArray("health_component")]
+script = ExtResource("6_wwxi4")
+health_component = NodePath("../HealthComponent")
+metadata/_custom_type_script = "uid://duff2iueejs4b"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GunnerMech/HurtboxComponent" unique_id=1856176158]
+shape = SubResource("RectangleShape2D_m2wcw")
 
 [node name="MouseAimComponent" type="Node2D" parent="." unique_id=423940070]
 material = SubResource("ShaderMaterial_rjq52")
@@ -158,3 +171,17 @@ material = SubResource("ShaderMaterial_l353m")
 rotation = 1.5707964
 texture = SubResource("CanvasTexture_rklov")
 offset = Vector2(0, -12.45)
+
+[node name="Marker2D" type="Marker2D" parent="MouseAimComponent" unique_id=1566346053]
+position = Vector2(50, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=121606437]
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer" unique_id=1340383874 node_paths=PackedStringArray("health")]
+top_level = true
+offset_right = 175.0
+offset_bottom = 58.0
+size_flags_horizontal = 0
+value = 100.0
+script = ExtResource("6_st2xw")
+health = NodePath("../../GunnerMech/HealthComponent")

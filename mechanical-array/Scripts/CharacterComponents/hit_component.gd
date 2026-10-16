@@ -3,16 +3,11 @@ extends Area2D
 
 @export var attack_damage:= 10.0
 
-func _init():
-	area_entered.connect(_on_area_entered)
-	
-func _on_area_entered(area):
-	if area is HurtboxComponent:
-		area.take_hit(attack_damage)
-		print("Car took dmg")
-
 func _ready() -> void:
-	pass 
+	area_entered.connect(_on_area_entered)
 
-func _process(delta: float) -> void:
-	pass
+func _on_area_entered(area: Area2D) -> void:
+	if area is HurtboxComponent:
+		if area.owner == owner:
+			return
+		area.take_hit(attack_damage)
