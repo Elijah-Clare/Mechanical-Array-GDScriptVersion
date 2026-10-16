@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://ci4yhajy1cau7"]
+
+[ext_resource type="Script" uid="uid://btn5kcutqx3cl" path="res://Scripts/CharacterComponents/spawn.gd" id="1_mbyu5"]
+
+[node name="spawn" type="Node2D" unique_id=1672373825]
+script = ExtResource("1_mbyu5")
+
+[node name="Control" type="Control" parent="." unique_id=1799791167]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
