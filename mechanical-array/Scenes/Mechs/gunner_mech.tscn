@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://dk0p8cdncre1f" path="res://Scripts/CharacterComponents/move_component.gd" id="4_03sij"]
 [ext_resource type="Script" uid="uid://btmn337lxalyu" path="res://Scripts/CharacterComponents/health_component.gd" id="4_o7kln"]
 [ext_resource type="Script" uid="uid://53ofvu2tvg6v" path="res://Scripts/CharacterComponents/mouse_aim_component.gd" id="5_otfu2"]
+[ext_resource type="Script" uid="uid://c21lcl6eyp5nn" path="res://Scripts/Player/camera_2d.gd" id="6_38lou"]
 [ext_resource type="Script" uid="uid://bwx1mik5w3jan" path="res://Scripts/GUI/health_bar.gd" id="6_st2xw"]
 [ext_resource type="Script" uid="uid://duff2iueejs4b" path="res://Scripts/CharacterComponents/hurt_component.gd" id="6_wwxi4"]
 
@@ -152,6 +153,7 @@ autoplay = &"gunner_mech_walk"
 
 [node name="Camera2D" type="Camera2D" parent="GunnerMech" unique_id=946647629]
 zoom = Vector2(2, 2)
+script = ExtResource("6_38lou")
 
 [node name="HurtboxComponent" type="Area2D" parent="GunnerMech" unique_id=302092773 node_paths=PackedStringArray("health_component")]
 script = ExtResource("6_wwxi4")
