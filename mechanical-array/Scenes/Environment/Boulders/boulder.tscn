@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dhub0dnmhtdd7"]
+
+[ext_resource type="Texture2D" uid="uid://cul7sa1x18wl4" path="res://Visuals/Sprites/Environment/Boulder2.png" id="1_f7dad"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_km8ha"]
+radius = 14.035668
+
+[node name="Boulder" type="Node2D" unique_id=880093732]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=289236906]
+position = Vector2(0, 0.875)
+texture = ExtResource("1_f7dad")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=781422539]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2139225115]
+shape = SubResource("CircleShape2D_km8ha")

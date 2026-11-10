@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cxd01x8gklu58"]
+
+[ext_resource type="Texture2D" uid="uid://dsr81axpni38n" path="res://Visuals/Sprites/Environment/building3.png" id="1_7ttjb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_km8ha"]
+size = Vector2(90, 57)
+
+[node name="ShortResidentialBuilding" type="Node2D" unique_id=455228071]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1301356835]
+position = Vector2(0, -1)
+texture = ExtResource("1_7ttjb")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=246590062]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=617934398]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_km8ha")

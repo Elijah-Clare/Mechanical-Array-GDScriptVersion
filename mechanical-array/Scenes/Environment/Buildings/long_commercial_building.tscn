@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://d32hxa7ei77ra"]
+
+[ext_resource type="Texture2D" uid="uid://dej48q57lxb3t" path="res://Visuals/Sprites/Environment/BuildingCommercialLong.png" id="1_aptag"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_km8ha"]
+size = Vector2(124, 178)
+
+[node name="LongCommercialBuilding" type="Node2D" unique_id=1456626296]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=889384901]
+texture = ExtResource("1_aptag")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=442143399]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1357981461]
+shape = SubResource("RectangleShape2D_km8ha")

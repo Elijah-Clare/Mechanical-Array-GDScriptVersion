@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://c1qpjgue56yqr"
-path="res://.godot/imported/ambience.wav-3e913883495ec0af787a9edb9580f1af.sample"
+path="res://.godot/imported/ambience.wav-41149290c08fe64919a9c2edf6c53620.sample"
 
 [deps]
 
-source_file="res://Audio/SoundEffects/ambience.wav"
-dest_files=["res://.godot/imported/ambience.wav-3e913883495ec0af787a9edb9580f1af.sample"]
+source_file="res://Audio/Ambient/ambience.wav"
+dest_files=["res://.godot/imported/ambience.wav-41149290c08fe64919a9c2edf6c53620.sample"]
 
 [params]
 

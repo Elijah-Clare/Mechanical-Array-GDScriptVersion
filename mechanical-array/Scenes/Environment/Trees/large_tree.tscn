@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://1kb3wowefhgc"]
+
+[ext_resource type="Texture2D" uid="uid://c1yuepwefpihw" path="res://Visuals/Sprites/Environment/BigTree.png" id="1_qhblm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_km8ha"]
+radius = 10.049875
+
+[node name="LargeTree" type="Node2D" unique_id=332324919]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=460627885]
+texture = ExtResource("1_qhblm")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=569885273]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1386923256]
+shape = SubResource("CircleShape2D_km8ha")
