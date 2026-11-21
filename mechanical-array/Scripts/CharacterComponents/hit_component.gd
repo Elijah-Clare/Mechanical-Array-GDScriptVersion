@@ -3,7 +3,10 @@ extends Area2D
 
 @export var attack_damage:= 10.0
 
+var parent
+
 func _ready() -> void:
+	parent = get_parent()
 	area_entered.connect(_on_area_entered)
 
 func _on_area_entered(area: Area2D) -> void:
@@ -11,3 +14,4 @@ func _on_area_entered(area: Area2D) -> void:
 		if area.owner == owner:
 			return
 		area.take_hit(attack_damage)
+	parent.queue_free()

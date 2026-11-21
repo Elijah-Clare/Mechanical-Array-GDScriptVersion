@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://d33mc200w46n3"]
+
+[ext_resource type="Script" uid="uid://012mmd68wl64" path="res://Scripts/Effects/mech_damage_particles.gd" id="1_4j83b"]
+[ext_resource type="Texture2D" uid="uid://rgxnep2hij3" path="res://Visuals/Sprites/Projectiles/CircleFlash.png" id="1_t4x57"]
+[ext_resource type="AudioStream" uid="uid://eec05wt7t6ko" path="res://Audio/SoundEffects/Canister Blast A.wav" id="2_ql8os"]
+[ext_resource type="AudioStream" uid="uid://pflfusnk6ieu" path="res://Audio/SoundEffects/Canister Blast B.wav" id="3_4j83b"]
+[ext_resource type="AudioStream" uid="uid://clfboxey5mppp" path="res://Audio/SoundEffects/Canister Blast C.wav" id="4_1sc5l"]
+
+[sub_resource type="Curve" id="Curve_ygkch"]
+_data = [Vector2(0, 0), 0.0, 2.3083458, 0, 0, Vector2(1, 0), -2.0946095, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_vvsrl"]
+curve = SubResource("Curve_ygkch")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xa11k"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_vvsrl")
+
+[sub_resource type="Gradient" id="Gradient_d1lfs"]
+offsets = PackedFloat32Array(0, 0.88617885, 1)
+colors = PackedColorArray(0.22745098, 0.30588236, 0.28235295, 1, 0.22745098, 0.30588236, 0.28235295, 1, 0.22745098, 0.30588236, 0.28235295, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_nkt2u"]
+gradient = SubResource("Gradient_d1lfs")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ilebp"]
+particle_flag_disable_z = true
+angle_min = -119.99999
+angle_max = 120.000015
+spread = 180.0
+initial_velocity_max = 80.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -80.0
+linear_accel_max = -80.0
+color_ramp = SubResource("GradientTexture1D_nkt2u")
+
+[node name="MechDamageParticles" type="Node2D" unique_id=967180874]
+script = ExtResource("1_4j83b")
+
+[node name="Particles" type="Node2D" parent="." unique_id=1549908678]
+
+[node name="ExplosiveFlash" type="GPUParticles2D" parent="Particles" unique_id=308468958]
+modulate = Color(2.6987157, 0.70141065, 0.3655646, 1)
+emitting = false
+amount = 1
+texture = ExtResource("1_t4x57")
+lifetime = 0.2
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_xa11k")
+
+[node name="MechPieces" type="GPUParticles2D" parent="Particles" unique_id=444017192]
+emitting = false
+lifetime = 5.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_ilebp")
+
+[node name="SoundEffects" type="Node2D" parent="." unique_id=507363375]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="SoundEffects" unique_id=889588342]
+stream = ExtResource("2_ql8os")
+volume_db = -15.0
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="SoundEffects" unique_id=922489008]
+stream = ExtResource("3_4j83b")
+volume_db = -15.0
+
+[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="SoundEffects" unique_id=1211150181]
+stream = ExtResource("4_1sc5l")
+volume_db = -15.0

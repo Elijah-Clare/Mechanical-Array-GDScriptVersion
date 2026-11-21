@@ -15,6 +15,15 @@ texture_region_size = Vector2i(600, 600)
 [sub_resource type="TileSet" id="TileSet_xa11k"]
 sources/2 = SubResource("TileSetAtlasSource_88n3u")
 
+[sub_resource type="Environment" id="Environment_xa11k"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 0.5
+glow_blend_mode = 2
+adjustment_enabled = true
+adjustment_contrast = 1.15
+adjustment_saturation = 0.75
+
 [node name="World" type="Node" unique_id=67970668]
 
 [node name="Ground" type="TileMapLayer" parent="." unique_id=243479981]
@@ -22,10 +31,52 @@ material = SubResource("ShaderMaterial_sug8k")
 tile_map_data = PackedByteArray("AADt/+3/AgAAAAAAAAASAO3/AgAAAAAAAAASABIAAgAAAAAAAADt/xIAAgAAAAAAAAA3ABIAAgAAAAAAAAA3AO3/AgAAAAAAAAA3ADcAAgAAAAAAAAASADcAAgAAAAAAAADt/zcAAgAAAAAAAAA=")
 tile_set = SubResource("TileSet_xa11k")
 
-[node name="car" parent="." unique_id=1739395628 instance=ExtResource("2_ftpi5")]
-position = Vector2(100, 0)
-scale = Vector2(3, 3)
-
 [node name="spawn" parent="." unique_id=1672373825 instance=ExtResource("4_sug8k")]
 
 [node name="PauseMenu" parent="." unique_id=1553481856 instance=ExtResource("4_7a57f")]
+visible = false
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=972685860]
+environment = SubResource("Environment_xa11k")
+
+[node name="Cars" type="Node2D" parent="." unique_id=2134613050]
+
+[node name="car" parent="Cars" unique_id=1739395628 instance=ExtResource("2_ftpi5")]
+position = Vector2(100, 0)
+scale = Vector2(3, 3)
+
+[node name="car2" parent="Cars" unique_id=875830593 instance=ExtResource("2_ftpi5")]
+position = Vector2(100.00001, 244)
+scale = Vector2(3, 3)
+
+[node name="car3" parent="Cars" unique_id=785527453 instance=ExtResource("2_ftpi5")]
+position = Vector2(250, 160)
+scale = Vector2(3, 3)
+
+[node name="car4" parent="Cars" unique_id=792505641 instance=ExtResource("2_ftpi5")]
+position = Vector2(406, 57)
+scale = Vector2(3, 3)
+
+[node name="car5" parent="Cars" unique_id=41651797 instance=ExtResource("2_ftpi5")]
+position = Vector2(389.00003, 462)
+scale = Vector2(3, 3)
+
+[node name="car6" parent="Cars" unique_id=677221069 instance=ExtResource("2_ftpi5")]
+position = Vector2(85.00003, 441)
+scale = Vector2(3, 3)
+
+[node name="car7" parent="Cars" unique_id=1770927473 instance=ExtResource("2_ftpi5")]
+position = Vector2(280, 351)
+scale = Vector2(3, 3)
+
+[node name="car8" parent="Cars" unique_id=1463722259 instance=ExtResource("2_ftpi5")]
+position = Vector2(627, 250)
+scale = Vector2(3, 3)
+
+[node name="car9" parent="Cars" unique_id=158423179 instance=ExtResource("2_ftpi5")]
+position = Vector2(307, -31)
+scale = Vector2(3, 3)
+
+[node name="car10" parent="Cars" unique_id=41031668 instance=ExtResource("2_ftpi5")]
+position = Vector2(620, 74)
+scale = Vector2(3, 3)
